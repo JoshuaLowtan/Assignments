@@ -3,15 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Invoice Calculator Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background: #f4f4f4;
-    }
-    h2 {
-      text-align: center;
-    }
+  <link rel="stylesheet" href="./css/nav.css">
+  <link rel="stylesheet" href="./css/styles.css">
+   <style>
+   
     table {
       width: 80%;
       margin: 0 auto;
@@ -32,92 +27,24 @@
       font-weight: bold;
       background: #eee;
     }
+    
   </style>
 </head>
 <body>
-
-  <h2>Invoice Calculator</h2>
-
-  <form id="invoice-form">
-    <table>
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Qty</th>
-          <th>Price</th>
-          <th>Line Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Item 1</td>
-          <td><input type="number" name="qty1" min="0" value="0" oninput="calculate()"></td>
-          <td><input type="number" name="price1" min="0" value="0" oninput="calculate()"></td>
-          <td><input type="number" name="total1" readonly></td>
-        </tr>
-        <tr>
-          <td>Item 2</td>
-          <td><input type="number" name="qty2" min="0" value="0" oninput="calculate()"></td>
-          <td><input type="number" name="price2" min="0" value="0" oninput="calculate()"></td>
-          <td><input type="number" name="total2" readonly></td>
-        </tr>
-        <tr>
-          <td>Item 3</td>
-          <td><input type="number" name="qty3" min="0" value="0" oninput="calculate()"></td>
-          <td><input type="number" name="price3" min="0" value="0" oninput="calculate()"></td>
-          <td><input type="number" name="total3" readonly></td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="3">Subtotal</td>
-          <td><input type="number" name="subtotal" readonly></td>
-        </tr>
-        <tr>
-          <td colspan="3">Tax (10%)</td>
-          <td><input type="number" name="tax" readonly></td>
-        </tr>
-        <tr>
-          <td colspan="3">Grand Total</td>
-          <td><input type="number" name="grandtotal" readonly></td>
-        </tr>
-      </tfoot>
-    </table>
-  </form>
-
-  <script>
-    function calculate() {
-      const form = document.forms['invoice-form'];
-
-      // Item line totals
-      const qty1 = parseFloat(form['qty1'].value) || 0;
-      const price1 = parseFloat(form['price1'].value) || 0;
-      const total1 = qty1 * price1;
-      form['total1'].value = total1.toFixed(2);
-
-      const qty2 = parseFloat(form['qty2'].value) || 0;
-      const price2 = parseFloat(form['price2'].value) || 0;
-      const total2 = qty2 * price2;
-      form['total2'].value = total2.toFixed(2);
-
-      const qty3 = parseFloat(form['qty3'].value) || 0;
-      const price3 = parseFloat(form['price3'].value) || 0;
-      const total3 = qty3 * price3;
-      form['total3'].value = total3.toFixed(2);
-
-      // Subtotal
-      const subtotal = total1 + total2 + total3;
-      form['subtotal'].value = subtotal.toFixed(2);
-
-      // Tax (10%)
-      const tax = subtotal * 0.10;
-      form['tax'].value = tax.toFixed(2);
-
-      // Grand Total
-      const grandTotal = subtotal + tax;
-      form['grandtotal'].value = grandTotal.toFixed(2);
-    }
-  </script>
-
+  <nav id='menu'>
+    <ul>
+      <li><a href='./index.html'>Home</a></li> 
+      <li><a class='dropdown-arrow'>Assignments</a>
+        <ul class='sub-menus'>
+          <li><a href='./Invoice/index.html'>Invoice Calculator</a></li>
+          <li><a href='./Gallons/index.html'>Gallons Calculator</a></li>
+          <li><a href='./Mortgage/index.html'>Mortgage Calculator</a></li>
+        </ul>
+      </li>
+      
+    </ul>
+  </nav>
+  <h2>Home</h2>
+  Hello, my name is Josh, and this is  my assignments website. Please use the menu above to navigate through all of my assignments.
 </body>
 </html>

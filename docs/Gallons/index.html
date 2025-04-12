@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miles Per Gallon Calculator</title>
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
         .container {
-            max-width: 400px;
+            max-width: 500px;
             margin: auto;
+            margin-top: 20px;
             padding: 20px;
+            padding-right: 40px;
             border: 1px solid #ccc;
             border-radius: 10px;
             box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
@@ -44,6 +43,20 @@
     </style>
 </head>
 <body>
+    <nav id='menu'>
+        <ul>
+          <li><a href='../index.html'>Home</a></li> 
+          <li><a class='dropdown-arrow'>Assignments</a>
+            <ul class='sub-menus'>
+              <li><a href='../Invoice/index.html'>Invoice Calculator</a></li>
+              <li><a href='../Gallons/index.html'>Gallons Calculator</a></li>
+              <li><a href='../Mortgage/index.html'>Mortgage Calculator</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+      </nav>
+      
     <div class="container">
         <img src="./Images/Logo.png" alt="Calculator Logo" width="100">
         <h1>Miles Per Gallon Calculator</h1>
