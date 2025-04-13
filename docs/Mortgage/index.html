@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="../css/nav.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <script src="calculator.js"></script>
     <style>
         .container {
             width: 80%;
@@ -33,17 +32,16 @@
 <body>
     <nav id='menu'>
         <ul>
-          <li><a href='../index.html'>Home</a></li> 
-          <li><a class='dropdown-arrow'>Assignments</a>
-            <ul class='sub-menus'>
-              <li><a href='../Invoice/index.html'>Invoice Calculator</a></li>
-              <li><a href='../Gallons/index.html'>Gallons Calculator</a></li>
-              <li><a href='../Mortgage/index.html'>Mortgage Calculator</a></li>
-            </ul>
-          </li>
-          
+            <li><a href='../index.html'>Home</a></li> 
+            <li><a class='dropdown-arrow'>Assignments</a>
+                <ul class='sub-menus'>
+                    <li><a href='../Invoice/index.html'>Invoice Calculator</a></li>
+                    <li><a href='../Gallons/index.html'>Gallons Calculator</a></li>
+                    <li><a href='../Mortgage/index.html'>Mortgage Calculator</a></li>
+                </ul>
+            </li>
         </ul>
-      </nav>
+    </nav>
 
     <h1>Home Mortgage Calculator</h1>
 
@@ -78,6 +76,30 @@
             </form>
         </div>
     </div>
+
+    <!-- Inline JavaScript for the mortgage calculator -->
+    <script>
+        function mortCalc(form) {
+            const amount = parseFloat(form.Amount.value);
+            const rate = parseFloat(form.Rate.value);
+            const years = parseFloat(form.Years.value);
+
+            if (isNaN(amount) || isNaN(rate) || isNaN(years) || amount <= 0 || rate <= 0 || years <= 0) {
+                alert("Please enter valid positive numbers for all fields.");
+                form.Payment.value = "";
+                return;
+            }
+
+            const monthlyRate = rate / 100 / 12;
+            const totalPayments = years * 12;
+
+            const numerator = amount * monthlyRate * Math.pow(1 + monthlyRate, totalPayments);
+            const denominator = Math.pow(1 + monthlyRate, totalPayments) - 1;
+            const monthlyPayment = numerator / denominator;
+
+            form.Payment.value = monthlyPayment.toFixed(2);
+        }
+    </script>
 
 </body>
 </html>
